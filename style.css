@@ -1,0 +1,18 @@
+.html {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+}
+
+.container-fluid {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #e4e4e4 50%, #ffffff 50%);
+  border: solid 15px rgb(134, 86, 23);
+}
+
+.new-game {
+  padding-top: 50px;
+}
