@@ -13,52 +13,50 @@
   border: solid 15px rgb(170, 136, 72);
 }
 
-.new-game {
+.newGame {
+  background-color: transparent;
+  border: none;
   text-align: center;
   padding-top: 50px;
+  font-size: 2rem;
 }
 
-#row-players {
+#rowPlayers {
   padding-top: 120px;
 }
 
-#row-score-dice {
+#rowScoreDice {
   padding-top: 30px;
 }
 
-.score-global-1 {
+.globalsScores {
   color: red;
   font-size: 5rem;
 }
 
 .dice {
-  background-color: aquamarine;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   border-radius: 5px;
 }
 
-.score-global-2 {
-  color: red;
-  font-size: 5rem;
-}
-
-#row-current-roll-hold {
+#rowCurrentRollHold {
   padding-top: 300px;
 }
 
-#current-bloc-1,
-#current-bloc-2 {
+#currentBloc1,
+#currentBloc2 {
   width: 150px;
   background-color: red;
   border-radius: 5px;
 }
 
-.current-title {
+.currentTitle {
   text-align: center;
 }
 
-.current-score {
+.currentScore1,
+.currentScore2 {
   color: white;
   text-align: center;
   font-weight: bold;
@@ -66,5 +64,7 @@
 }
 
 .roll-hold {
-  text-align: center;
+  background-color: transparent;
+  border: none;
+  font-size: 2rem;
 }
