@@ -1,11 +1,35 @@
-.html {
+@media screen and (max-width: 1422px) {
+  #rowCongratulations {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1035px) {
+  .dice {
+    width: 50px;
+    height: 50px;
+  }
+  #rowDivider1 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  #rowDivider2 {
+    display: none;
+  }
+  #rowDivider3 {
+    display: none;
+  }
+}
+
+html {
   font-size: 16px;
-  font-family: "Lato", sans-serif;
 }
 
 .container-fluid {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -21,7 +45,7 @@
   font-size: 2rem;
 }
 
-#rowPlayers {
+#rowDivider1 {
   padding-top: 120px;
 }
 
@@ -34,14 +58,21 @@
   font-size: 5rem;
 }
 
+#rowCongratulations {
+  height: 50px;
+}
+
+.congratulations {
+  color: red;
+  font-size: 2rem;
+}
+
 .dice {
-  width: 150px;
-  height: 150px;
   border-radius: 5px;
 }
 
-#rowCurrentRollHold {
-  padding-top: 300px;
+#rowDivider2 {
+  padding-top: 150px;
 }
 
 #currentBloc1,
@@ -60,11 +91,15 @@
   color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 
 .roll-hold {
   background-color: transparent;
   border: none;
   font-size: 2rem;
+}
+
+#rowDivider3 {
+  padding-top: 120px;
 }

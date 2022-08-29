@@ -1,28 +1,44 @@
+//All necessary buttons selection in dom
 const newGame = document.getElementById("newGame");
 const roll = document.getElementById("rollDice");
 const hold = document.getElementById("hold");
 
-const player1Dot = document.getElementById("reDot1");
+//Congratulations
+const congratulations1 = document.getElementById("congratulations1");
+const congratulations2 = document.getElementById("congratulations2");
+
+//Player selection
+const player1Dot = document.getElementById("redDot1");
 const player2Dot = document.getElementById("redDot2");
 
+//RedDot initialization
+redDot1.style.display = "block";
+redDot2.style.display = "none";
+
+//Roll score
 let rollNumber;
 
+//Select global score in dom
 const displayGlobalScore1 = document.getElementById("globalScore1");
 const displayGlobalScore2 = document.getElementById("globalScore2");
 
+//Select current score in dom
 const displayCurrentScore1 = document.getElementById("currentScore1");
 const displayCurrentScore2 = document.getElementById("currentScore2");
 
+//Variables initialization
 let globalScore1 = 0;
 let globalScore2 = 0;
 let currentScore1 = 0;
 let currentScore2 = 0;
 
+//Score display initialization
 displayGlobalScore1.textContent = 0;
 displayGlobalScore2.textContent = 0;
 displayCurrentScore1.textContent = 0;
 displayCurrentScore2.textContent = 0;
 
+//Variable for selecting players
 let currentPlayer = 1;
 
 function getNumber() {
@@ -57,6 +73,8 @@ function getGlobalScore1() {
   redDot2.style.display = "block";
   currentPlayer = 2;
   if (globalScore1 >= 100) {
+    startAnimation();
+    winSound();
     currentPlayer = 1;
     congratulations1.textContent = "Good game!!!";
     displayCurrentScore1.textContent = 0;
@@ -73,6 +91,8 @@ function getGlobalScore2() {
   redDot2.style.display = "none";
   currentPlayer = 1;
   if (globalScore2 >= 100) {
+    startAnimation();
+    winSound();
     currentPlayer = 2;
     congratulations2.textContent = "Good game!!!";
     displayCurrentScore1.textContent = 0;
@@ -105,6 +125,7 @@ roll.addEventListener("click", () => {
     endGame();
   }
   if (rollNumber === 1) {
+    resetCurrentScoreSound();
     if (currentPlayer === 1) {
       currentScore1 = 0;
       displayCurrentScore1.textContent = 0;
@@ -122,12 +143,14 @@ roll.addEventListener("click", () => {
     }
   } else {
     if (currentPlayer === 1 && globalScore1 < 100 && globalScore2 < 100) {
+      rollDiceSound();
       getCurrentScore1();
     } else if (
       currentPlayer === 2 &&
       globalScore1 < 100 &&
       globalScore2 < 100
     ) {
+      rollDiceSound();
       getCurrentScore2();
     }
   }
@@ -138,14 +161,78 @@ hold.addEventListener("click", () => {
     endGame();
   }
   if (currentPlayer === 1 && globalScore1 < 100 && globalScore2 < 100) {
+    holdCurrentScoreSound();
     getGlobalScore1();
     console.log(
       "Le joueur 1 décide de conserver son score. Au tour du joueur 2."
     );
   } else if (currentPlayer === 2 && globalScore1 < 100 && globalScore2 < 100) {
+    holdCurrentScoreSound();
     getGlobalScore2();
     console.log(
       "Le joueur 2 décide de conserver son score. Au tour du joueur 1."
     );
   }
 });
+
+function endGame() {
+  displayCurrentScore1.textContent = 0;
+  displayCurrentScore2.textContent = 0;
+  rollNumber = 0;
+  dice.src = "./images/dice0.png";
+  alert("The game is over. Click on 'NEW GAME' to start a new one.");
+  console.log("Appuyez sur le bouton NEW GAME pour recommencer une partie");
+  startAnimation();
+}
+
+function startAnimation() {
+  newGame.animate(
+    [
+      {
+        transform: "translateY(0px)",
+      },
+      {
+        transform: "translateY(40px)",
+      },
+      {
+        transform: "translateY(0px)",
+      },
+    ],
+    {
+      delay: 1000,
+      duration: 3000,
+      iterations: 1,
+      easing: "cubic-bezier(0.2, 1.5, 0.58, 1)",
+    }
+  );
+}
+
+function startNewGameSound() {
+  var noise = new Audio();
+  noise.src = "./audio/new-game.mp3";
+  noise.play();
+}
+
+function rollDiceSound() {
+  var noise = new Audio();
+  noise.src = "./audio/roll-dice.mp3";
+  noise.play();
+}
+
+function holdCurrentScoreSound() {
+  var noise = new Audio();
+  noise.src = "./audio/hold.mp3";
+  noise.play();
+}
+
+function resetCurrentScoreSound() {
+  var noise = new Audio();
+  noise.src = "./audio/reset-current-score.mp3";
+  noise.play();
+}
+
+function winSound() {
+  var noise = new Audio();
+  noise.src = "./audio/win.mp3";
+  noise.play();
+}
