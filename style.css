@@ -1,3 +1,4 @@
+/* Media querries */
 @media screen and (max-width: 1422px) {
   #rowCongratulations {
     display: none;
@@ -27,6 +28,7 @@ html {
   font-size: 16px;
 }
 
+/* Container */
 .container-fluid {
   width: 100vw;
   height: 100%;
@@ -37,6 +39,7 @@ html {
   border: solid 15px rgb(170, 136, 72);
 }
 
+/* New game btn */
 .newGame {
   background-color: transparent;
   border: none;
@@ -45,6 +48,7 @@ html {
   font-size: 2rem;
 }
 
+/* Divider1 */
 #rowDivider1 {
   padding-top: 120px;
 }
@@ -53,11 +57,13 @@ html {
   padding-top: 30px;
 }
 
+/* Globals scores */
 .globalsScores {
   color: red;
   font-size: 5rem;
 }
 
+/* End of game congratulations */
 #rowCongratulations {
   height: 50px;
 }
@@ -67,14 +73,17 @@ html {
   font-size: 2rem;
 }
 
+/* Dice */
 .dice {
   border-radius: 5px;
 }
 
+/* Divider2 */
 #rowDivider2 {
   padding-top: 150px;
 }
 
+/* Current scores */
 #currentBloc1,
 #currentBloc2 {
   width: 150px;
@@ -94,6 +103,7 @@ html {
   font-size: 2.5rem;
 }
 
+/* Roll dice and hold btn */
 .roll-hold {
   background-color: transparent;
   border: none;

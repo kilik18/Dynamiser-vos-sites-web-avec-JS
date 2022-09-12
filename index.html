@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-
   <head>
 
     <!-- METADATA -->
@@ -26,7 +25,6 @@
       content="Dice game for 2 players. The first to 100 wins the game."
     />
     <meta name="title" content="Dice game" />
-    
     <title>Dice game</title>
     
   </head>
@@ -34,8 +32,10 @@
     
   <body>
 
+    <!-- CONTAINER -->
     <div class="container-fluid">
 
+      <!-- NEW GAME BTN -->
       <section class="row">
         <div class="col col-12 d-flex justify-content-center">
           <button type="button" class="newGame" id="newGame" onclick="startNewGameSound()">
@@ -45,8 +45,10 @@
         </div>
       </section>
 
+      <!-- DIVIDER 1 -->
       <div class="row" id="rowDivider1"></div>
 
+      <!-- PLAYERS AND RED SELECTION POINTS -->
       <section class="row" id="rowPlayers">
 
         <div class="col-5 d-flex justify-content-center">
@@ -63,6 +65,7 @@
         </div>
       </section>
 
+      <!-- GLOBAL SCORES -->
       <section class="row" id="rowScoreDice">
         <div class="col-5 d-flex justify-content-center align-items-center">
           <p class="globalsScores" id="globalScore1"></p> <br>
@@ -75,6 +78,7 @@
         </div>
       </section>
 
+      <!-- END OF GAME CONGRATULATIONS -->
       <section class="row" id="rowCongratulations">
         <div class="col-5 d-flex justify-content-center align-items-center">
           <p  class="congratulations" id="congratulations1"></p>
@@ -84,15 +88,19 @@
         </div>
       </section>
 
+      <!-- DIVIDER 2 -->
       <div class="row" id="rowDivider2"></div>
 
+      <!-- CURRENT SCORES, ROLL DICE AND HOLD BTN -->
       <section class="row d-flex justify-content-evenly" id="rowCurrentRollHold">
-  
+        
+        <!-- CURRENT SCORE PLAYER 1 -->  
         <div class="col-lg-2 col-md-12" id="currentBloc1">
           <h3 class="currentTitle">CURRENT</h3>
           <p class="currentScore1" id="currentScore1"></p>
         </div>
 
+        <!-- ROLL DICE AND HOLD BTN -->
         <div class="col-lg-2 col-md-12">
           <div class="d-flex justify-content-center">
             <button type="button" class="roll-hold" id="rollDice">
@@ -108,14 +116,17 @@
           </div>
         </div>
 
+        <!-- CURRENT SCORE PLAYER 2 -->
         <div class="col-lg-2 col-md-12" id="currentBloc2">
           <h3 class="currentTitle">CURRENT</h3>
           <p class="currentScore2" id="currentScore2"></p>
         </div>
       </section>
 
+      <!-- DIVIDER 3 -->
       <div class="row" id="rowDivider3"></div>
 
+    <!-- JAVASCRIPT -->
     <script src="script.js"></script>
 
     </div>

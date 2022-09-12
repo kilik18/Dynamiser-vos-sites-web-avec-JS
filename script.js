@@ -41,29 +41,34 @@ displayCurrentScore2.textContent = 0;
 //Variable for selecting players
 let currentPlayer = 1;
 
+//Function that return integer between 1 and 6
 function getNumber() {
   rollNumber = Math.floor(Math.random() * 6 + 1);
   console.log("Résultat du lancé : " + rollNumber);
   return rollNumber;
 }
 
+//Function that display dice face according to rollnumber
 function diceFace() {
   let dice = document.getElementById("dice");
   dice.src = "./images/dice" + rollNumber + ".png";
 }
 
+//Function add roll score to current for player1
 function getCurrentScore1() {
   currentScore1 += rollNumber;
   displayCurrentScore1.textContent = currentScore1;
   console.log("Player 1 totalise sur ce round : " + currentScore1 + " points");
 }
 
+//Function add roll score to current for player2
 function getCurrentScore2() {
   currentScore2 += rollNumber;
   displayCurrentScore2.textContent = currentScore2;
   console.log("Player 2 totalise sur ce round : " + currentScore2 + " points");
 }
 
+//Function add current to global score for player1
 function getGlobalScore1() {
   globalScore1 += currentScore1;
   displayGlobalScore1.textContent = globalScore1;
@@ -82,6 +87,7 @@ function getGlobalScore1() {
   }
 }
 
+//Function add current to global score for player2
 function getGlobalScore2() {
   globalScore2 += currentScore2;
   displayGlobalScore2.textContent = globalScore2;
@@ -100,6 +106,8 @@ function getGlobalScore2() {
   }
 }
 
+//ADD EVENT LISTENER
+//Reset game when click on newGame button
 newGame.addEventListener("click", function newGame() {
   displayGlobalScore1.textContent = 0;
   displayGlobalScore2.textContent = 0;
@@ -118,6 +126,7 @@ newGame.addEventListener("click", function newGame() {
   redDot2.style.display = "none";
 });
 
+//Send the dice when click on roll button
 roll.addEventListener("click", () => {
   getNumber();
   diceFace();
@@ -156,6 +165,7 @@ roll.addEventListener("click", () => {
   }
 });
 
+//keep score when click on hold button
 hold.addEventListener("click", () => {
   if (globalScore1 >= 100 || globalScore2 >= 100) {
     endGame();
@@ -175,6 +185,7 @@ hold.addEventListener("click", () => {
   }
 });
 
+//End game function
 function endGame() {
   displayCurrentScore1.textContent = 0;
   displayCurrentScore2.textContent = 0;
@@ -185,6 +196,7 @@ function endGame() {
   startAnimation();
 }
 
+//Endgame animation function
 function startAnimation() {
   newGame.animate(
     [
@@ -207,6 +219,7 @@ function startAnimation() {
   );
 }
 
+//Noises functions
 function startNewGameSound() {
   var noise = new Audio();
   noise.src = "./audio/new-game.mp3";
