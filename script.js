@@ -1,3 +1,4 @@
+//INITIALIZATION
 //All necessary buttons selection in dom
 const newGame = document.getElementById("newGame");
 const roll = document.getElementById("rollDice");
@@ -41,6 +42,7 @@ displayCurrentScore2.textContent = 0;
 //Variable for selecting players
 let currentPlayer = 1;
 
+//FUNCTIONS
 //Function that return integer between 1 and 6
 function getNumber() {
   rollNumber = Math.floor(Math.random() * 6 + 1);
@@ -104,6 +106,71 @@ function getGlobalScore2() {
     displayCurrentScore1.textContent = 0;
     displayCurrentScore2.textContent = 0;
   }
+}
+
+//End game function
+function endGame() {
+  displayCurrentScore1.textContent = 0;
+  displayCurrentScore2.textContent = 0;
+  rollNumber = 0;
+  dice.src = "./images/dice0.png";
+  alert("The game is over. Click on 'NEW GAME' to start a new one.");
+  console.log("Appuyez sur le bouton NEW GAME pour recommencer une partie");
+  startAnimation();
+}
+
+//Endgame animation function
+function startAnimation() {
+  newGame.animate(
+    [
+      {
+        transform: "translateY(0px)",
+      },
+      {
+        transform: "translateY(40px)",
+      },
+      {
+        transform: "translateY(0px)",
+      },
+    ],
+    {
+      delay: 1000,
+      duration: 3000,
+      iterations: 1,
+      easing: "cubic-bezier(0.2, 1.5, 0.58, 1)",
+    }
+  );
+}
+
+//Noises functions
+function startNewGameSound() {
+  var noise = new Audio();
+  noise.src = "./audio/new-game.mp3";
+  noise.play();
+}
+
+function rollDiceSound() {
+  var noise = new Audio();
+  noise.src = "./audio/roll-dice.mp3";
+  noise.play();
+}
+
+function holdCurrentScoreSound() {
+  var noise = new Audio();
+  noise.src = "./audio/hold.mp3";
+  noise.play();
+}
+
+function resetCurrentScoreSound() {
+  var noise = new Audio();
+  noise.src = "./audio/reset-current-score.mp3";
+  noise.play();
+}
+
+function winSound() {
+  var noise = new Audio();
+  noise.src = "./audio/win.mp3";
+  noise.play();
 }
 
 //ADD EVENT LISTENER
@@ -184,68 +251,3 @@ hold.addEventListener("click", () => {
     );
   }
 });
-
-//End game function
-function endGame() {
-  displayCurrentScore1.textContent = 0;
-  displayCurrentScore2.textContent = 0;
-  rollNumber = 0;
-  dice.src = "./images/dice0.png";
-  alert("The game is over. Click on 'NEW GAME' to start a new one.");
-  console.log("Appuyez sur le bouton NEW GAME pour recommencer une partie");
-  startAnimation();
-}
-
-//Endgame animation function
-function startAnimation() {
-  newGame.animate(
-    [
-      {
-        transform: "translateY(0px)",
-      },
-      {
-        transform: "translateY(40px)",
-      },
-      {
-        transform: "translateY(0px)",
-      },
-    ],
-    {
-      delay: 1000,
-      duration: 3000,
-      iterations: 1,
-      easing: "cubic-bezier(0.2, 1.5, 0.58, 1)",
-    }
-  );
-}
-
-//Noises functions
-function startNewGameSound() {
-  var noise = new Audio();
-  noise.src = "./audio/new-game.mp3";
-  noise.play();
-}
-
-function rollDiceSound() {
-  var noise = new Audio();
-  noise.src = "./audio/roll-dice.mp3";
-  noise.play();
-}
-
-function holdCurrentScoreSound() {
-  var noise = new Audio();
-  noise.src = "./audio/hold.mp3";
-  noise.play();
-}
-
-function resetCurrentScoreSound() {
-  var noise = new Audio();
-  noise.src = "./audio/reset-current-score.mp3";
-  noise.play();
-}
-
-function winSound() {
-  var noise = new Audio();
-  noise.src = "./audio/win.mp3";
-  noise.play();
-}
